@@ -1,0 +1,49 @@
+<html>
+        <head>
+                <meta charset="utf-8">
+
+                <title></title>
+        </head>
+    <body>
+
+            <table  bordercolor="teal" bgcolor="Skyblue" border="20" cellspacing="10" cellpadding="10" align="center" height="200" width="50%" >
+
+  <tr>
+  <th>pressure</th>
+   <td id= "pressure"></td>
+  <tr>
+   <th>temperature</th>
+    <td id ="temp"></td>
+  </tr>
+</tr>
+</table>
+</table>
+<input type="search" id="a" placeholder="enter place">
+<button id="btn" onclick="fxn()">SEARCH</button>
+        <script>
+          function fxn() {
+            var e=document.getElementById("a").value;
+
+           var url ="http://api.openweathermap.org/data/2.5/weather?q="
+           var t="&appid=1285bbb78a338ad8c43733bba194610a"
+           var host=url+e+t;
+           var xhr = new XMLHttpRequest()    // there is establish connection bw server and client
+
+           xhr.open('GET',host)
+
+           xhr.onreadystatechange = test
+           function test(){
+               if(this.status==200 && this.readyState==4){ //to remove exception
+              var re_data = JSON.parse(this.responseText)
+              console.log(re_data)
+                            var pressure = document.getElementById('pressure');
+                            pressure.innerHTML=re_data.main.pressure;
+                        //    pre.appendChild(pressure)
+                            var temp=document.getElementById("temp")
+                            temp.innerHTML=re_data.main.temp;
+}}
+xhr.send()
+          }
+        </script>
+    </body>
+</html>

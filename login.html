@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="login.css">
+  </head>
+  <body>
+<div class="login-box">
+  <h1>ENTER YOUR REQUIREMENTS:</h1>
+  <div class="textbox">
+  <input type="text" id="user" placeholder="UserName" name="" value="">
+</div>
+<p>Enter Your Requirements</p>
+<input type="text" name="" placeholder="REQUIREMENTS">
+<br>
+<br>
+<input type="button" name="" value="Sign in" onclick="fxn()" class="btn">
+<p id="a"></p>
+<a href="login.html"><button id="btn2" style="display:none">Refresh and add a valid user</button></a>
+<a href="index.html"> <button id="btn3" class="btn" style="display:none">MOVE TO YOUR PAGE!</button></a>
+</div>
+<img class="imgchange" src="himalayas.jpg" height="100" width="100"></img>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+
+<script>
+ $(document).ready(function(){
+  $('.btn').click(function(){
+   const name = $('#user').val();
+   alert(name);
+   $('.imgchange').attr('src',`https://joeschmoe.io/api/v1/${name}`);
+   const b = $('.imgchange');
+   console.log(b);
+
+  });
+ });
+    function fxn()
+    {  var e=document.getElementById("user").value;
+        var users= ["ishtjot","arun","shubhodit","prabhjot"];
+        var c=0;
+        for(var i=0;i<users.length;i++)
+        {
+            if(users[i]==e )
+            {
+                document.getElementById("a").innerHTML='success';
+                document.getElementById("btn3").style.display="block";
+                c--;
+            }
+           c++;
+        }
+        if(c==4)
+        {
+            document.getElementById("a").innerHTML="You aren't authorized";
+            document.getElementById("btn2").style.display="block";
+        }
+    }
+</script>
+  </body>
+</html>

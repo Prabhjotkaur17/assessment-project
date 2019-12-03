@@ -1,0 +1,31 @@
+<html>
+    <head>
+    <link rel="stylesheet" href="todo.css"> </head>
+    <body>
+        <marquee style="color:lightgreen; font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;" ><h2>Plan Your goals to complete, Here we are at Your Service!</h2></marquee>
+        <input type="text" id="input" placeholder="Enter your goals!">
+        <button onclick="fxn()" class="btn">Click to add !</button>
+        <ul id="a" type="disc">
+        </ul>
+        <button onclick="fxn2()" id="b" style="display:none" class="btn">Click to remove !</button>
+
+        <script>
+            function fxn()
+            {
+            var parent=document.getElementById("input").value;
+            var p=document.getElementById("a");
+            var node=document.createElement("LI");
+            var textnode=document.createTextNode(parent);
+            node.appendChild(textnode);
+            p.appendChild(node);
+            var bt=document.getElementById("b").style.display="block";
+            }
+            function fxn2()
+            { var parent=document.getElementById("a");
+
+              parent.removeChild(parent.childNodes[0]);
+
+            }
+        </script>
+    </body>
+</html>

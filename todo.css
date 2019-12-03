@@ -1,0 +1,23 @@
+*{
+  margin:30px;
+  padding: 0;
+}
+body{
+  background: url(Todo.jpg) ;
+}
+.btn{
+  display: inline-block;
+  padding: 8px 18px;
+  text-transform: uppercase;
+   border:1px solid;
+   cursor: pointer;
+   color: #FFF;
+ 	background-color: #2E8B57;
+ 	border-color: #2E8B57 ;
+}
+.btn:hover
+{
+	color: inherit;
+	background-color: transparent;
+	border-color: inherit;
+}

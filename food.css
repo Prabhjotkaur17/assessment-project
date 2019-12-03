@@ -1,0 +1,42 @@
+*{
+  margin: 0;
+  padding: 0;
+  background-color: #ffff99;
+}
+.text{
+  font-size: 40px;
+  font-style:oblique;
+  font-weight: bold;
+  text-align: center;
+}
+.btn{
+  display: inline-block;
+  padding: 8px 18px;
+  text-transform: uppercase;
+   border:1px solid;
+   cursor: pointer;
+   color: #FFF;
+ 	background-color: #2E8B57;
+ 	border-color: #2E8B57 ;
+}
+.btn:hover
+{
+	color: inherit;
+	background-color: transparent;
+	border-color: inherit;
+}
+.image{
+   height: 700px;
+   width: 1500px;
+}
+h3
+{
+  font-size: 30px;
+  font-style:oblique;
+  font-weight: bold;
+  text-align: center;
+}
+.alignn{
+   text-align: center;
+   margin-left:40%;
+}

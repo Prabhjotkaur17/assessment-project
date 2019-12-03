@@ -1,0 +1,82 @@
+<html>
+    <head></head>
+    <link rel="stylesheet" href="style1.css">
+<body>
+    <h1 style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; text-align:center; text-decoration: underline;text-decoration-color: blanchedalmond;background-color: burlywood;">CONVERSION OF YOUR MONEY BEFORE TRAVELLING TO YOUR DESTINATION IS DONE HERE!!</h1>
+    <div class="container">
+    <input type="text"  name="from_VAL" id="from_VAL" placeholder="Enter amount" >
+    <button type="button" name="button" onclick="convert()" class="btn"> Convert </button>
+  <br>
+  <div class="col">
+    <select id="from" class="postfix" style="background-color:cornsilk;">
+      <option value="AUD" >AUD</option>
+      <option value="AZN" >AZN</option>
+      <option value="BHD" >BHD</option>
+      <option value="CAD" >CAD</option>
+      <option value="CHF" >CHF</option>
+      <option value="EUR" >EUR</option>
+      <option value="GBP" >GBP</option>
+      <option value="INR" >INR</option>
+      <option value="JOD" >JOD</option>
+      <option value="KWD" >KWD</option>
+      <option value="KYD" >KYD</option>
+      <option value="OMR" >OMR</option>
+      <option value="USD" selected>USD</option>
+      <option value="UYU" >UYU</option>
+    </select>
+  </div>
+  <p> to</p>
+   <div class="col">
+     <select id="to" class="postfix" style="background-color:cornsilk;">
+       <option value="AUD" >AUD</option>
+       <option value="AZN" >AZN</option>
+       <option value="BHD" >BHD</option>
+       <option value="CAD" >CAD</option>
+       <option value="CHF" >CHF</option>
+       <option value="EUR" >EUR</option>
+       <option value="GBP" >GBP</option>
+       <option value="INR" selected>INR</option>
+       <option value="JOD" >JOD</option>
+       <option value="KWD" >KWD</option>
+       <option value="KYD" >KYD</option>
+       <option value="OMR" >OMR</option>
+       <option value="USD">USD</option>
+       <option value="UYU" >UYU</option>
+     </select>
+  </div>
+  <br>
+  <div class="medium-3 columns">
+    <input type="text" id="to_VAL" placeholder="get value" style="background-color:cornsilk; font-weight: bold;" value=0 >
+    <br>
+  </div>
+</div>
+<div>
+<marquee style="font-family: 'Times New Roman', Times, serif; background-color:silver ;"><p id ="a" style="display: none; color:gold">Thanks For Travelling with us!!</p></marquee>
+</div><script>
+
+function convert(){
+var from =document.getElementById("from").value;
+var to = document.getElementById("to").value;
+var xmlhttp= new XMLHttpRequest();
+var url="https://free.currencyconverterapi.com/api/v6/convert?q="+from+"_"+to+"&compact=ultra&apiKey=44bbef74df526f28aa0a";
+xmlhttp.open("GET", url);
+xmlhttp.onreadystatechange=function(){
+if(this.readyState == 4 && this.status == 200 )
+{
+var result=this.responseText;
+var jsResult=JSON.parse(result);
+       console.log(jsResult);
+        var q = from+"_"+to;
+        console.log(q);
+        console.log(jsResult[q]);
+        var amount = jsResult[q] * document.getElementById('from_VAL').value;
+        console.log(amount);
+document.getElementById("to_VAL").value= amount;
+}
+    }
+    xmlhttp.send();
+    document.getElementById("a").style.display="block";
+    }
+</script>
+</body>
+</html>
